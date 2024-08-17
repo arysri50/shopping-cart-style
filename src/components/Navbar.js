@@ -23,12 +23,11 @@ const Navbar = ({ cartCount, setIsCartOpen }) => {
       >
         Aryan's Store
       </motion.h1>
-      <div className="relative">
+      <div className="relative flex items-center cursor-pointer" onClick={() => setIsCartOpen(prev => !prev)}>
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          onClick={() => setIsCartOpen(prev => !prev)}
-          className="cursor-pointer"
+          className="flex items-center"
         >
           <FaShoppingCart className="text-white text-2xl" />
           {cartCount > 0 && (
@@ -46,6 +45,13 @@ const Navbar = ({ cartCount, setIsCartOpen }) => {
             </motion.span>
           )}
         </motion.div>
+        <motion.span
+          className="ml-2 text-white font-bold"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          Cart
+        </motion.span>
       </div>
       <AnimatePresence>
         {showPopup && (
